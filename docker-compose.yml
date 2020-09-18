@@ -1,0 +1,16 @@
+version: '3'
+services:
+  front:
+    restart: always
+    build:
+      context: ./
+      dockerfile: .docker/front/Dockerfile
+    ports:
+      - "8080:80"
+  back:
+    restart: always
+    build:
+      context: ./
+      dockerfile: .docker/back/Dockerfile
+    ports:
+      - "8081:8081"

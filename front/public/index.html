@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta description="Connaître l'horaire du prochain bus à votre arrêt à Nantes, c'est facile avec Le Prochain Bus !">
+    <link rel="icon" href="<%= BASE_URL %>/img/logo.png">
+    <link rel="stylesheet" href="<%= BASE_URL %>fonts/manrope/stylesheet.css" defer>
+    <link rel="manifest" href="/manifest.json" />
+    <script src="https://kit.fontawesome.com/c32fd0c33e.js" crossorigin="anonymous" defer></script>
+    
+    <meta property="og:title" content="Le Prochain Bus à Nantes" />
+    <meta property="og:description" content="Connaître l'horaire du prochain bus à votre arrêt à Nantes, c'est facile avec Le Prochain Bus !" />
+    <meta property="og:url" content="https://le-prochain-bus.lucas-trebouet.fr/" />
+    <meta property="og:image" content="<%= BASE_URL %>/img/logo.png" />
+    
+    <title>Le prochain bus à Nantes</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: 'manrope regular', sans-serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: #26A65B;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+      }
+
+      footer {
+        background: white;
+        padding: 2rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!--<footer>
+      Créé par <a href="https://github.com/Luuka">Lucas Trebouet Voisin</a> | Réalisé avec l'<a href="https://data.nantesmetropole.fr/explore/dataset/244400404_api-temps-reel-tan/">API TAN</a>
+    </footer>-->
+    <!-- built files will be auto injected -->
+  </body>
+</html>

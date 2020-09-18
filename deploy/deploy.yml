@@ -1,0 +1,6 @@
+- name: Install Front
+  hosts: server
+  remote_user: lucas
+  roles:
+    - front
+    - back

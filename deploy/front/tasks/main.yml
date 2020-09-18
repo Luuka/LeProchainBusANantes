@@ -1,0 +1,36 @@
+---
+# tasks file for front
+
+- name: Build Vue.js App
+  command: chdir=../front npm run build
+  delegate_to: localhost
+
+- name: Create app directory
+  file:
+    path: /home/lucas/app/nextbus
+    state: directory
+    mode: '0755'
+
+- name: Copy builded app
+  copy:
+    src: ../front/dist/
+    dest: /home/lucas/app/nextbus/front
+    owner: lucas
+    group: lucas
+    mode: '0755'
+
+- name: Copy docker-compose file
+  copy:
+    src: ../docker-compose.yml
+    dest: /home/lucas/app/nextbus
+    owner: lucas
+    group: lucas
+    mode: '0755'
+
+- name: Copy Docker files
+  copy:
+    src: ../.docker/front/
+    dest: /home/lucas/app/nextbus/.docker/front/
+    owner: lucas
+    group: lucas
+    mode: '0755'
