@@ -8,7 +8,8 @@ const cors = require('cors');
 var whitelist = process.env.ALLOW_CORS
 var corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    console.log(origin);
+    if (whitelist.indexOf(origin) !== -1 || origin==undefined) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
