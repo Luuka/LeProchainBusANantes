@@ -13,7 +13,6 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.prochainbus.rule=Host(`le-prochain-bus.lucas-trebouet.fr`)"
       - "traefik.http.routers.prochainbus.entrypoints=websecure"
-      - "traefik.http.routers.prochainbus.middlewares=strip-www"
   back:
     restart: always
     build:
@@ -21,7 +20,12 @@ services:
       dockerfile: .docker/back/Dockerfile
     ports:
       - "8085:8081"
-
+    networks:
+      - web
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.prochainbus.rule=Host(`le-prochain-bus-ws.lucas-trebouet.fr`)"
+      - "traefik.http.routers.prochainbus.entrypoints=websecure"
 networks:
   web:
     external: true
