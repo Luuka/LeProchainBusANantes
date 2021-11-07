@@ -24,8 +24,8 @@ services:
       - web
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.prochainbus.rule=Host(`le-prochain-bus-ws.lucas-trebouet.fr`)"
-      - "traefik.http.routers.prochainbus.entrypoints=websecure"
+      - "traefik.http.routers.prochainbusws.rule=Host(`le-prochain-bus-ws.lucas-trebouet.fr`)"
+      - "traefik.http.routers.prochainbusws.entrypoints=websecure"
 networks:
   web:
     external: true
