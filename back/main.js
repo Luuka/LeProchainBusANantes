@@ -18,7 +18,7 @@ var corsOptions = {
 }
 
 app.get('/stops', cors(corsOptions), (req, res) => {
-    http.get('http://open.tan.fr/ewp/arrets.json', (resp) => {
+    http.get('https://open.tan.fr/ewp/arrets.json', (resp) => {
         let data = '';
       
         resp.on('data', (chunk) => {
@@ -35,7 +35,7 @@ app.get('/stops', cors(corsOptions), (req, res) => {
 })
 
 app.get('/stops/:latitude/:longitude', cors(corsOptions), (req, res) => {
-  http.get('http://open.tan.fr/ewp/arrets.json/'+req.params.latitude+'/'+req.params.longitude, (resp) => {
+  http.get('https://open.tan.fr/ewp/arrets.json/'+req.params.latitude+'/'+req.params.longitude, (resp) => {
       let data = '';
     
       resp.on('data', (chunk) => {
@@ -54,7 +54,7 @@ app.get('/stops/:latitude/:longitude', cors(corsOptions), (req, res) => {
 
 
 app.get('/stop/:id', cors(corsOptions), (req, res) => {
-  http.get('http://open.tan.fr/ewp/tempsattente.json/'+req.params.id, (resp) => {
+  http.get('https://open.tan.fr/ewp/tempsattente.json/'+req.params.id, (resp) => {
       let data = '';
     
       resp.on('data', (chunk) => {
