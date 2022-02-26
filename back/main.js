@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const port = 8081
 const http = require('http');
+const https = require('https')
 const cors = require('cors');
 
 var whitelist = process.env.ALLOW_CORS
@@ -18,7 +19,7 @@ var corsOptions = {
 }
 
 app.get('/stops', cors(corsOptions), (req, res) => {
-    http.get('https://open.tan.fr/ewp/arrets.json', (resp) => {
+    https.get('https://open.tan.fr/ewp/arrets.json', (resp) => {
         let data = '';
       
         resp.on('data', (chunk) => {
@@ -35,7 +36,7 @@ app.get('/stops', cors(corsOptions), (req, res) => {
 })
 
 app.get('/stops/:latitude/:longitude', cors(corsOptions), (req, res) => {
-  http.get('https://open.tan.fr/ewp/arrets.json/'+req.params.latitude+'/'+req.params.longitude, (resp) => {
+  https.get('https://open.tan.fr/ewp/arrets.json/'+req.params.latitude+'/'+req.params.longitude, (resp) => {
       let data = '';
     
       resp.on('data', (chunk) => {
@@ -54,7 +55,7 @@ app.get('/stops/:latitude/:longitude', cors(corsOptions), (req, res) => {
 
 
 app.get('/stop/:id', cors(corsOptions), (req, res) => {
-  http.get('https://open.tan.fr/ewp/tempsattente.json/'+req.params.id, (resp) => {
+  https.get('https://open.tan.fr/ewp/tempsattente.json/'+req.params.id, (resp) => {
       let data = '';
     
       resp.on('data', (chunk) => {
